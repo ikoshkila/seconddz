@@ -41,7 +41,7 @@ long long itc_bin_num(long long number){
     }
     return o;
 }
-int itc_oct_num(long long number){
+long long itc_oct_num(long long number){
     long long o = 0;
     int i = 1;
     while(number != 0){
