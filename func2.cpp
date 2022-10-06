@@ -1,35 +1,30 @@
 #include "middle.h"
 
 int itc_second_max_num(long long number){
-    if (number / 10 == 0){
+    if(number < 0){
+        number *= -1;
+    }
+    if(number / 10 == 0){
         return -1;
     }
     int fmax = itc_max_num(number);
     int smax = -1;
-    while(number != 0){
+    while(number > 0){
         int temp = number % 10;
-        if(temp > smax && temp < fmax){
+        if(temp > smax && temp != fmax){
             smax = temp;
+        }
+        if(temp == fmax){
+            fmax = 10;
         }
         number /= 10;
     }
     return smax;
 }
 int itc_second_simple_max_num(long long number){
-    if (number / 10 == 0) return -1;
-    int fmax = itc_max_num(number);
-    int fmcount = 0;
-    int smax = -1;
-    while(number != 0){
-        int temp = number % 10;
-        if(temp == fmax){
-            fmcount++;
-        }if(temp > smax && temp < fmax){
-            smax = temp;
-        }
-        number /= 10;
-    }
-    return (fmcount > 1)? -1 : smax;
+    int temp = itc_second_max_num(number); 
+    if(temp == itc_max_num(number)) return -1;
+    return temp;
 }
 long long itc_bin_num(long long number){
     long long o = 0;
