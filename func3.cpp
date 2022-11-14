@@ -37,7 +37,7 @@ long long reverse_num(long long number){
     if(number < 0){
         number *= -1;
     }
-    int o = 0;
+    long long o = 0;
     while(number > 0){
         o *= 10;
         o += number % 10;

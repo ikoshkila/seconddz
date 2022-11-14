@@ -1,13 +1,13 @@
 #include "middle.h"
 
 int itc_min_num(long long number){
-    if(number < 0){
+    if(number == 0){
         return 0;
     }
     if(number < 0){
         number *= -1;
     }
-    int min = 100;
+    int min = 10;
     while(number > 0){
         if(number % 10 < min){
             min = number % 10;

@@ -27,12 +27,15 @@ int itc_second_simple_max_num(long long number){
     return temp;
 }
 long long itc_bin_num(long long number){
+    if(number > 1023){
+        return -1;
+    }
     long long o = 0;
     int i = 1;
     while(number != 0){
         o += (number % 2)*i;
-        number /= 2;
         i *= 10;
+        number /= 2;
     }
     return o;
 }
